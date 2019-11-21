@@ -60,14 +60,14 @@ def period_grid(
     """Returns array of optimal sampling periods for transit search in light curves
        Following Ofir (2014, A&A, 561, A138)"""
 
-    if R_star < 0.1:
+    if R_star < 0.01:
         text = (
-            "Warning: R_star was set to 0.1 for period_grid (was unphysical: "
+            "Warning: R_star was set to 0.01 for period_grid (was unphysical: "
             + str(R_star)
             + ")"
         )
         warnings.warn(text)
-        R_star = 0.1
+        R_star = 0.01
 
     if R_star > 10000:
         text = (
