@@ -31,13 +31,16 @@ def T14(
         result = upper_limit
     return result
 
-
-def duration_grid(periods, shortest, log_step=tls_constants.DURATION_GRID_STEP):
+# Modified by Keaton Bell following advice from Michael Hippke
+# Note that I combined R_star_max with M_star_min, instead of "max" with "max", etc.
+def duration_grid(periods, shortest, log_step=tls_constants.DURATION_GRID_STEP,
+                  R_star_min = tls_constants.R_STAR_MIN, R_star_max = tls_constants.R_STAR_MAX,
+                  M_star_min = tls_constants.M_STAR_MIN, M_star_max = tls_constants.M_STAR_MAX):
     duration_max = T14(
-        R_s=tls_constants.R_STAR_MAX, M_s=tls_constants.M_STAR_MAX, P=min(periods)
+        R_s=R_star_max, M_s=M_star_min, P=min(periods)
     )
     duration_min = T14(
-        R_s=tls_constants.R_STAR_MIN, M_s=tls_constants.M_STAR_MIN, P=max(periods)
+        R_s=R_star_min, M_s=M_star_max, P=max(periods)
     )
     durations = [duration_min]
     current_depth = duration_min
@@ -46,6 +49,8 @@ def duration_grid(periods, shortest, log_step=tls_constants.DURATION_GRID_STEP):
         durations.append(current_depth)
     durations.append(duration_max)  # Append endpoint. Not perfectly spaced.
     return durations
+
+
 
 
 def period_grid(
