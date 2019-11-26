@@ -33,7 +33,7 @@ def T14(
 
 # Modified by Keaton Bell following advice from Michael Hippke
 # Note that I combined R_star_max with M_star_min, instead of "max" with "max", etc.
-def duration_grid(periods, shortest, log_step=tls_constants.DURATION_GRID_STEP,
+def duration_grid(periods, log_step=tls_constants.DURATION_GRID_STEP,
                   R_star_min = tls_constants.R_STAR_MIN, R_star_max = tls_constants.R_STAR_MAX,
                   M_star_min = tls_constants.M_STAR_MIN, M_star_max = tls_constants.M_STAR_MAX):
     duration_max = T14(

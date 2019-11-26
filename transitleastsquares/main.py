@@ -64,7 +64,7 @@ class transitleastsquares(object):
         )
 
         durations = duration_grid(
-            periods, shortest=1 / len(self.t), log_step=self.duration_grid_step,
+            periods, log_step=self.duration_grid_step,
             R_star_min=self.R_star_min, R_star_max=self.R_star_max,
             M_star_min=self.M_star_min, M_star_max=self.M_star_max
         )
