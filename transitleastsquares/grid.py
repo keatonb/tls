@@ -37,10 +37,10 @@ def duration_grid(periods, shortest, log_step=tls_constants.DURATION_GRID_STEP,
                   R_star_min = tls_constants.R_STAR_MIN, R_star_max = tls_constants.R_STAR_MAX,
                   M_star_min = tls_constants.M_STAR_MIN, M_star_max = tls_constants.M_STAR_MAX):
     duration_max = T14(
-        R_s=R_star_max, M_s=M_star_min, P=min(periods)
+        R_s=R_star_max, M_s=M_star_min, P=min(periods), small=False
     )
     duration_min = T14(
-        R_s=R_star_min, M_s=M_star_max, P=max(periods)
+        R_s=R_star_min, M_s=M_star_max, P=max(periods), small=True
     )
     durations = [duration_min]
     current_depth = duration_min
